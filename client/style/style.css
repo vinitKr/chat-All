@@ -1,0 +1,59 @@
+
+body { 
+   background: #eee; 
+   padding: auto;
+} 
+
+video { 
+   background: #eee; 
+   border: 1px solid gray; 
+}
+
+.call-page { 
+  float: right; 
+} 
+    
+#chatwrap{
+  float: left;
+}
+
+.msg_box{
+  position:fixed;
+  bottom:5px;
+  width:200px;
+  background:#eee;
+  border: 1px #000 solid;
+}
+
+.msg_head{
+   border: 1px #000 solid;
+}
+
+.msg_body{
+   height: 120px;
+   border: 1px #000 solid;
+}
+
+#chatarea{
+   overflow: auto;
+   overflow-x: hidden;
+}
+
+.close{
+  float:right;
+  cursor:pointer;
+}
+
+#localVideo { 
+   width: 150px; 
+   height: 150px; 
+   position: absolute; 
+   top: 30px; 
+   right: 15px; 
+}
+
+#remoteVideo { 
+   width: 700px; 
+   height: 500px; 
+}
+  

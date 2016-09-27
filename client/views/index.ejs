@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>WebRTC</title>
+<link rel="stylesheet" type="text/css" href="style/style.css">
+<script type="text/javascript" src="js/libs/adapter.js"></script>
+<script type="text/javascript" src="js/libs/socket.io-1.4.5.js"></script>
+<script type="text/javascript" src="js/libs/angular.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+
+</head>
+
+<body  ng-app="videoApp" ng-controller="chatCtrl">
+  
+   <div id = "loginPage" class = "container" ng-init="show=true;" ng-show="show"> 
+  
+      <div> 
+         <div class = "col-md-4 col-md-offset-4">
+            <form>
+            <h2>WebRTC Video Demo. Please sign in</h2> 
+            <label for = "usernameInput" class = "sr-only">Login</label> 
+            <input type = "text" id = "usernameInput" class = "form-control formgroup" ng-model="username" placeholder = "Login" required autofocus> 
+            <button type="submit" class = "btn btn-lg btn-primary btnblock" ng-click="login(username);show=false;">Sign in</button>
+            </form>
+         </div> 
+      </div> 
+    
+   </div>
+
+   <div id = "callPage" class = "call-page" ng-show="goto=='videos'">
+      <div>
+        <div class = "col-md-4 col-md-offset-4"> 
+          <div class = "panel panel-primary"> 
+            <div class = "panel-heading">Video chat</div> 
+            <video id = "remoteVideo" autoplay></video>
+            <video id = "localVideo" autoplay></video> 
+          </div>
+          <br> To start a video call enter remote username and call <br>
+          <input type = "text" placeholder = "username to call" ng-model="callToUsername" /> 
+          <button class = "btn-success btn" ng-click="call(callToUsername)">Call</button> 
+          <button class = "btn-danger btn" ng-click="hangUp()">Hang Up</button>
+        </div> 
+ 
+      </div>
+    </div>
+
+
+    <div ng-hide="show">
+
+<!-- group chat -->
+
+      <div id="chatwrap" class = "call-page">   
+            <div>Group chat Area</div> 
+          <div style="height: 500px; border: 1px #000 solid;"> 
+            <div id = "chatarea">
+              <div ng-repeat="msg in groupMsg"> <b>{{msg.name}}:</b>{{msg.msg}}<br></div>
+            </div> 
+          </div>
+          <form>
+        <br> To send a message enter the message and send <br>
+        <input type = "text" placeholder = "Enter the message" ng-model="groupMsgbox" /> 
+        <button type="submit" ng-click="sendToGroup(groupMsgbox)">Send</button> 
+        </form>
+      </div>
+
+<!-- personal chat -->
+
+        <div id="chatwrap" class = "msg_box" style="left: {{$index * 255}};" ng-repeat="box in chatbox">   
+            <div class="msg_head">{{box}}
+            <div class="close" ng-click="closeChatbox(box)">x</div>
+            </div> 
+          <div class="msg_body"> 
+            <div id ="chatarea">
+              <div ng-repeat="data in personalMsg"> <b>{{data.name}}:</b>{{data.msg}}<br></div>
+            </div> 
+          </div>
+          <form>
+        <input type = "text" placeholder = "Enter the message" ng-model="personalMsgbox" /> 
+        <button type="submit" ng-click="sendPersonal(personalMsgbox)" style="cursor: pointer;">Send</button> 
+        <a href="" ng-click="videoCall(box)" style="cursor: pointer;">VIDEO CALL</a> 
+        </div>
+
+<!-- online users -->
+
+        <div><br><ul><li ng-click="chat(user)" ng-repeat="user in users" style="cursor: pointer;">{{user}}</li></ul></div>
+    </div>
+
+</body>
+
+</html>

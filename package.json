@@ -1,0 +1,19 @@
+{
+  "name": "express4",
+  "version": "1.0.0",
+  "description": "This is Express 4",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sumit Bhadani",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "node-static": "~0.7.1",
+    "ejs": "^2.5.1",
+    "express": "^4.14.0",
+    "socket.io": "^1.4.8",
+    "ws": "~1.1.1"
+  }
+}
