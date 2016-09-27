@@ -12,4 +12,5 @@
 To install packages with npm :
 ```
 npm install
+node index
 ```
