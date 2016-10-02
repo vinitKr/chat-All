@@ -1,12 +1,12 @@
 {
-  "name": "express4",
+  "name": "Chat-all",
   "version": "1.0.0",
-  "description": "This is Express 4",
+  "description": "https://github.com/vinitKr",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Sumit Bhadani",
+  "author": "Vinit Kumar",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
